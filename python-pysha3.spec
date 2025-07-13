@@ -2,7 +2,7 @@
 # Conditional build:
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module (incompatible with 3.9+)
+%bcond_with	python3 # CPython 3.x module (incompatible with 3.9+, see python3-safe-pysha3.spec instead)
 
 Summary:	SHA-3 (Keccak) for Python 2
 Summary(pl.UTF-8):	SHA-3 (Keccak) dla Pythona 2
@@ -21,6 +21,7 @@ BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
 BuildRequires:	python3-devel >= 1:3.4
+BuildRequires:	python3-devel < 1:3.9
 BuildRequires:	python3-setuptools
 %endif
 BuildRequires:	rpm-pythonprov
